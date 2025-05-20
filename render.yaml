@@ -4,10 +4,11 @@ services:
     env: node
     plan: free
     buildCommand: cd server && npm install
-    startCommand: cd server && node index.js
+    startCommand: node index.js
+    rootDir: server
     envVars:
       - key: MONGO_URI
-        sync: false  # You’ll set this manually in the Render dashboard
+        sync: false
 
   - type: web
     name: movie-frontend
