@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: movie-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && node index.js
+    envVars:
+      - key: MONGO_URI
+        sync: false
+  - type: web
+    name: movie-frontend
+    env: static
+    plan: free
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist
